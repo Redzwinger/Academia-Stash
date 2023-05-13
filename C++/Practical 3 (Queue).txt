@@ -1,0 +1,99 @@
+#include <stdio.h>
+using namespace std;
+
+/*enqueue, dequeue, insert, delete*/
+
+#define size 5
+
+class queue
+{
+   int f=-1;
+   int r=-1;
+   int Qu[size];
+
+   public:
+ {
+
+       int queue_overflow()
+       {
+
+           if ( f==0 && r=size-1 || f==+1)
+           {
+               return(1);
+           }
+           else
+           {
+               return(0);
+           }
+       }
+
+       int queue_underflow()
+       {
+           if(f==-1 && r==-1)
+           {
+               return (1);
+           }
+           else
+           {
+               return (0);
+           }
+       }
+
+       void enqueue(int value)
+       {
+           int c, value;
+           c= queue_overflow();
+
+           if(c==0)
+           {
+               cout<<"The queue is full"<<endl;
+               return;
+           }
+           else
+           {
+               if(f==-1)
+               {
+                   f=0;
+               }
+               else
+               {
+                   r=(r+1)%size;
+                   Qu[r]=value;
+               }
+           }
+       }
+
+       void dequeue(int value)
+       {
+           int c, value;
+           c= queue_underflow();
+
+           if(c==1)
+           {
+               cout<<"The queue is empty"<<endl;
+               return;
+           }
+           else
+           {
+               value=Qu[f];
+               if(f==-1)
+               {
+                   f=-1;
+                   r=-1;
+               }
+               else
+               {
+                   f=(f+1)% size;
+                   cout<<"The Element "<<value<<" has been deleted.";
+               }
+           }
+       }
+}
+};
+
+int main()
+{
+    queue Q1;
+    int value;
+    return 0;
+}

@@ -1,0 +1,157 @@
+#include <iostream>
+using namespace std;
+struct node
+{
+    int data;
+    struct node*next;
+};
+struct node*head=NULL;
+void insert_beg()
+{
+    int d;
+    struct node*temp;
+    temp=new(struct node);
+    cout<<"Enter data"<<endl;
+    cin>>d;
+    temp->data=d;
+    temp->next=NULL;
+    if(head==NULL)
+    {
+        head=temp;
+        return;
+    }
+    else
+    {
+        temp->next=head;
+        head=temp;
+        return;
+    }
+}
+void insert_end()
+{
+    int d;
+    struct node*temp=new(struct node);
+    cout<<"Enter data"<<endl;
+    cin>>d;
+    temp->data=d;
+    temp->next=NULL;
+    if(head==NULL)
+    {
+        head=temp;
+        return;
+    }
+    else
+    {
+        struct node*t;
+        t=head;
+        while (t->next!=NULL)
+        {
+            t=t->next;
+        }
+        t->next=temp;
+        return;
+    }
+}
+void delete_beg()
+{
+    if(head==NULL)
+    {
+        cout<<"The list is empty";
+        return;
+    }
+    else
+    {
+        struct node*t;
+        t=head;
+        head=head->next;
+        delete t;
+        return;
+    }
+}
+void delete_end()
+{
+    if(head==NULL)
+    {
+        cout<<"The list is empty"<<endl;
+    }
+    else if(head->next==NULL)
+    {
+        head=NULL;
+    }
+    else
+    {
+       struct node*t;
+       struct node*a;
+       t=head;
+       while(t->next!=NULL)
+        {
+          a=t;
+          t=t->next;
+        }
+          a->next=NULL;
+          delete t;
+    }
+}
+
+void display()
+{
+    struct node*temp=head;
+    if(head==NULL)
+    {
+        cout<<"List is empty"<<endl;
+    }
+    else
+    {
+        do
+        {
+            cout<<temp->data;
+            temp=temp->next;
+        }
+        while(temp!=NULL);
+    }
+}
+int main()
+{
+    
+    int n;
+    do
+    {
+        cout<<"\n Enter 1. for inserting at beginning \n Enter 2. for inserting at end \n Enter 3. for deleting from beginning \n Enter 4. for deleting from end \n Enter 5. for display \n Enter 6. for Exit"<<endl;
+        cin>>n;
+        switch(n)
+        {
+            case 1:
+                 insert_beg();
+                break;
+            case 2:
+                insert_end();
+                break;
+            case 3:
+                delete_beg();
+                break;
+            case 4:
+                 delete_end();
+                break;
+            case 5:
+                display();
+                break;
+        
+        }
+    }while(n!=6);
+}
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
