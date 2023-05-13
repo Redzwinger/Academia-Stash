@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+   float numer,denom,ans;
+   char again;
+   while(again!='n')
+   {
+       cout<<"Enter Dividend & Divisor "<< endl;
+       cin>>numer>>denom;
+       ans=numer/denom;
+       cout<<"The remainder is "<<ans<<endl;
+       cout<<"Do another? (y/n)"<<endl;
+       cin>>again;
+    }
+    
+    return 0;
+}

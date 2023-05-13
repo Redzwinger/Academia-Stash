@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+   int n=31;
+   while(n!=0)
+   {
+       cout<<"Enter a number "<<endl;
+       cin>>n;
+   }
+    return 0;
+}

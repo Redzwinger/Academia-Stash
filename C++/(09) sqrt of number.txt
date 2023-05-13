@@ -1,0 +1,12 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() 
+{
+    float n, sqr;
+    cout << "Enter any number:";
+    cin >> n;
+    sqr=sqrt(n);
+    cout << "Square root of " << n << " is equal to " << sqr;
+    return 0;
+}

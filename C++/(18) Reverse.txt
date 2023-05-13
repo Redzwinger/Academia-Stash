@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+
+    cout << "Enter a Number: "<<endl;
+    cin >> n;
+    int remainder, reversenum;
+
+    while(n != 0)
+    {
+        remainder = n%10;
+        reversenum = reversenum*10 + remainder;
+        n = n/10;
+    }
+    cout << reversenum;
+    return 0;
+}
