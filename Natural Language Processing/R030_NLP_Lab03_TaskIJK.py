@@ -44,6 +44,7 @@ def LocalIsTheBest():
     
     words = tolkein(raw)
     print("\n Tokenized Words: \n", words, end="\n\n")
+    print("\n Word Cloud:", end="\n\n")
     
     mask = np.array(Image.open("shh.jpg"))
     
@@ -58,3 +59,4 @@ def LocalIsTheBest():
 LocalIsTheBest()
 
 # Curiously Crafted By Redzwinger #
+
