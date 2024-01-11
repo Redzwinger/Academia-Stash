@@ -1,5 +1,5 @@
 # College-Dump
-Updated: 10/01/2024 (Updated till end of Sem 5 and some Sem 6 things)
+Updated: 10/01/2024 (Updated Daily/Weekly)
 
 a dump for all the stuff done during the semesters. 
 
