@@ -1,0 +1,178 @@
+#include <iostream>
+
+using namespace std;
+/*class Queue
+{
+    int q[size];
+    int f = -1, r = -1;
+public:
+    int overflow()
+    {
+        if ((f == 0 && r == size - 1) || f == (r + 1))
+        {
+            return (1);
+        }
+        else
+        {
+            return(0);
+        }
+    }
+    int underflow()
+    {
+        if (f == -1 && r == -1)
+        {
+            return (1);
+        }
+        else
+        {
+            return (0);
+        }
+    }
+    void enqueue(int value)
+    {
+        int c;
+        c = overflow();
+        if (c == 1)
+        {
+            cout << "Queue is full" << endl;
+            return;
+        }
+        else
+        {
+            if (f == -1)
+            {
+                f = 0;
+            }
+            r = (r + 1) % size;
+            q[r] = value;
+        }
+    }
+    void dequeue()
+    {
+        int c, value;
+        c = underflow();
+        if (c == 1)
+        {
+            cout << "Queue is empty" << endl;
+            return;
+        }
+        else
+        {
+            value = q[f];
+            if (f == r)
+            {
+                f = -1;
+                r = -1;
+            }
+            else
+            {
+                f = (f + 1) % size;
+            }
+            cout << "Element deleted is: " << value << endl;
+        }
+    }
+};*/
+
+#define size 10
+
+int frnt = -1;
+int rer = -1;
+int kqu[size]; //Queue
+
+void enkqu()        //Inserting an element
+{
+    int o;
+
+    cout << endl << "Please enter the number that is to be inserted into the Queue: ";
+    cin >> o;
+
+    if ((rer + 1) % size == frnt)
+    {
+        cout << endl << "Error! Queue Overflow!" << endl;
+    }
+    else if (rer == -1 && frnt == -1)
+    {
+        frnt = rer = 0;
+        kqu[rer] = o;
+    }
+    else
+    {
+        rer = (rer + 1) % size;
+    }
+
+    kqu[rer] = o;
+
+    cout << endl << "The element " << o << " has been inserted into the Queue." << endl;
+}
+
+void dekqu()      //Deleting an element
+{
+    int g;
+
+    if (frnt == -1 && rer == -1)
+    {
+        cout << endl << "Error! Queue Underflow!" << endl;
+    }
+    else if (frnt == rer)
+    {
+        frnt = rer = -1;
+    }
+    else
+    {
+        frnt = (frnt + 1) % size;
+        cout << endl << "The element " << g << " has been deleted." << endl;
+    }
+}
+
+int overflow()
+{
+    if ((frnt == 0 && rer == size - 1) || frnt == (rer + 1))
+    {
+        return (1);
+    }
+    else
+    {
+        return(0);
+    }
+}
+
+int underflow()
+{
+    if (frnt == -1 && rer == -1)
+    {
+        return (1);
+    }
+    else
+    {
+        return (0);
+    }
+}
+
+void BFS(int G[10][10], int v, int source)
+{
+
+}
+
+int main()
+{
+    int v, i, j, source;
+
+    cout << "Enter total number of vertices: \n";
+    cin >> v;
+
+    int Graph[10][10];
+
+    for (i = 0; i < v; i++)
+    {
+        for (j = 0; j < v; j++)
+        {
+            cout << "Enter value: \n";
+            cin >> Graph[i][j];
+        }
+    }
+
+    cout << "Enter source node: \n";
+    cin >> source;
+
+    BFS(Graph, v, source);
+}

@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main() 
+{
+    float x = 4;
+    float y = 9;
+    float z1,z2,z3,z4,z5;
+    
+    z1 = hypot(x, y);
+    cout << "Returns sqrt(x2 +y2) without intermediate overflow or underflow as " << z1 << endl;
+    
+    z2 = fmax(x, y);
+    cout << "Returns the highest value of a floating x and y as " << z2 << endl;
+    
+    z3 = fmin(x, y);
+    cout << "Returns the lowest value of a floating x and y as " << z3 << endl;
+    
+    z4 = fmod(x, y);
+    cout << "Returns the floating point remainder of x/y as " << z4 << endl;
+    
+    z5 = cbrt(x);
+    cout << "Returns the cube root of x as " << z5 << endl;
+    
+    return 0;
+}

@@ -1,8 +1,0 @@
-#include<iostream>
-using namespace std;
-
-int main()
-{
-    cout << " C++ " << "Has " << "Cascading \n" ;
-    return 0;
-}

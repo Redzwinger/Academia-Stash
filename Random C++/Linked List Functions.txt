@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+struct node *head=NULL;
+
+void insert_beginning()
+{
+    int d;
+    struct node *temp;      //address of node
+    temp=new(struct node);
+    
+    cout<<endl<<"Please enter the required data: ";
+    cin>>d;
+    
+    temp->data=d;
+    temp->next=NULL;
+    
+    if(head==NULL)    //if list is empty
+    {
+        head=temp;
+        return;
+    }
+    else  //if list is not empty
+    {
+        temp->next=head;
+        head=temp;
+    }
+}
+
+void display()
+{
+    struct node *temp=head;
+    
+    if(head==NULL)
+    {
+        cout<<endl<<"The Linked List is empty.";
+        return;
+    }
+    else
+    {
+        while(temp!=NULL)
+        {
+            cout<<endl<<"The current linked list is [ "<<temp->data<<" ]";
+            temp=temp->next;
+        }
+    }
+}
+
+int main()
+{
+    int a;
+    cout<<"This is a program containing 2 functions."<<endl;
+    
+    insert_beginning();
+    display();
+    
+    return 0;
+}

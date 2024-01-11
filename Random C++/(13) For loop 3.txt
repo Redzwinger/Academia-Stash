@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main() 
+{
+    int a,s;
+    for(int n=1;n<=2;n++)
+    {
+        cout<<"Enter a number: \n";
+        cin>>a;
+        s=a*a;
+        cout<<"The square of the number is "<<s<<endl;
+    }
+    return 0;
+}

@@ -1,0 +1,10 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int Add,Num1=10, Num2=20;
+    Add=Num1+Num2;
+    cout << "The addition of two numbers, 10 and 20, is " << Add ;
+    return 0;
+}    

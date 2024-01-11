@@ -1,8 +1,0 @@
-#include<iostream>
-using namespace std;
-
-int main()
-{
-    cout << "This is PPS Lab. \n" << "This is MBA Tech Computer class. \n";
-    return 0;
-}
