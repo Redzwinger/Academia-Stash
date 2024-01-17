@@ -1,5 +1,5 @@
 # College-Dump
-]Updated: 17/01/2024]
+[Updated: 17/01/2024]
 
 a dump for all the stuff done during the semesters. 
 
