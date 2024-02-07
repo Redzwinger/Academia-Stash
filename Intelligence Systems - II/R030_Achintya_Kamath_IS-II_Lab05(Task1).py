@@ -3,16 +3,20 @@ Name: Achintya Kamath
 Roll Number: R030
 MBA Tech Artificial Intelligence
 Subject: Intelligence Systems - II
-Lab 04
+Lab 05 (Task 1)
 Date: 31/01/2024
 '''
 
 # Info about me and the practical
 print("\n ############# ################ ####################\n")
 
-print(" Name: Achintya Kamath \n Roll Number: R030 \n Program: MBA Tech Artificial Intelligence \n Subject: Intelligence Systems - II \n Lab 04 \n Date: 31/01/2024")
+print(" Name: Achintya Kamath \n Roll Number: R030 \n Program: MBA Tech Artificial Intelligence \n Subject: Intelligence Systems - II \n Lab 05 \n Date: 31/01/2024")
 
 print("\n ############# ################ ####################\n")
+
+print(" Task 1\n")
+
+print(" ############# ################ ####################\n")
 
 #pip install scikit-fuzzy
 
@@ -49,4 +53,22 @@ detect_temp.compute()
 
 detect_temp.output['ac_temp']
 
-ac_temp.view(sim = detect_temp)
+ac_temp.view(sim=detect_temp)
+plt.title('Fuzzy Membership Functions for AC Temperature')
+plt.xlabel('AC Temperature (C)')
+plt.ylabel('Membership')
+
+plt.xlim(15, 45)
+plt.ylim(0, 1.1)
+
+plt.grid(True)
+plt.xticks(np.arange(15, 46, 5))
+plt.yticks(np.arange(0, 1.1, 0.1))
+plt.gca().spines['top'].set_visible(True)
+plt.gca().spines['right'].set_visible(True)
+plt.legend(['Poor', 'Average', 'Good'], loc='upper right')
+
+plt.show()
+
+# Carefully Crafted By Redzwinger #
+
