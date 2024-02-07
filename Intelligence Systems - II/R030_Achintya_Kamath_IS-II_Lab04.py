@@ -19,6 +19,7 @@ print("\n ############# ################ ####################\n")
 import numpy as np
 import skfuzzy as fuz
 from skfuzzy import control as ctrl
+import matplotlib.pyplot as plt
 
 temperature = np.arange(15, 40)
 
@@ -35,6 +36,7 @@ temp.automf(3)
 ac_temp.automf(3)
 
 temp.view()
+plt.show()
 
 rule1 = ctrl.Rule(temp['poor'],ac_temp['good'])
 rule2 = ctrl.Rule(temp['good'],ac_temp['poor'])
