@@ -89,4 +89,3 @@ cost, pos = optimizer.optimize(f, iters=1000)
 (predict(pos) == y).mean()
 
 # Catatonically Crafted by Redzwinger #
-
