@@ -1,12 +1,3 @@
-# College-Dump
-[Updated: 27/03/2024]
-
-a dump for all the stuff done during the semesters. 
-
-I'm putting them up here to have manageable copies, instead of random files all over the place, plus it looks good ;)
-
-NOTE (10/01/2024): Now also maintaining a local Git, using Git integration for Visual Studio. (finally! after years of using VS IDE)
-
 
 '''
 Name: Achintya Kamath
@@ -138,7 +129,7 @@ def LoG():
     laplaceImage = cv.Laplacian(grayImg, cv.CV_16S, ksize=3)
     thresholded_laplaceImage = laplaceImage
     max_max_max = np.max(laplaceImage)
-    threshold = max_max_max * 0.5
+    threshold = max_max_max * 1.8
     
     laplaceImage[np.abs(laplaceImage) > threshold] = 255
     
@@ -153,13 +144,15 @@ def LoG():
     plt.subplot(1, 3, 3)
     plt.imshow(thresholded_laplaceImage, cmap='gray')
     plt.title("Laplacian Thresholded Image")
-
+    plt.show()
     
 ImageOne = data.astronaut()
-#DoG(ImageOne)
+DoG(ImageOne)
 LoG()
 
+'''
 Conclusion:
+For DoG,
 Difference of Gaussians is a technique used to highlight the edges of the given image of the astronaut.
 For DoG with Sigma=1 and Sigma=7, fine details of the image are highlighted.
 For Dog with Sigma=4 and Sigma=7, fine details disappear and only the outline of the astronaut are visible.
@@ -175,3 +168,9 @@ For Sigma=4, filtered image has removed fine details.
 Therefore the Difference of Gaussian is zero.
 
 Talking about thresholding, for a threshold 0.2, only scattered spots are visible. Whereas at a threshold of 0.05 a thin outline is visible for Sigma=7.
+
+For LoG,
+LoG of the image is done to show the edges of the image Dhoni.
+We used a filter size of 3x3 and a threshold of 1.8 to get more edges.
+The edges are clearly visible in the Laplacian Image after thresholding.
+'''
