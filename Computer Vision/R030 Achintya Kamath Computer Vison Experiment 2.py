@@ -77,7 +77,7 @@ def DoG(rawImage):
     Doggy_Four_Seven = sigmaFour - sigmaSeven
 
     max_max_max = np.max(Doggy_One_Seven)
-    threshold = max_max_max * 0.05
+    threshold = max_max_max * 0.2
 
     Doggy_One_Seven[np.abs(Doggy_One_Seven) > threshold] = 255
     Doggy_Two_Seven[np.abs(Doggy_Two_Seven) > threshold] = 255
@@ -104,7 +104,7 @@ def DoG(rawImage):
 
 def LoG():
     
-    rawImg = cv.imread(r"C:\Achintya\Achintya's Stuff\Gitty Things\Academia Stash\Academia-Stash\Computer Vision\dhoni.jpg", cv.IMREAD_COLOR)
+    rawImg = cv.imread(r"D:\Achintya\Achintya's Stuff\Gitty Things\Academia Stash\Academia-Stash\Computer Vision\dhoni.jpg", cv.IMREAD_COLOR)
     colorImg = cv.cvtColor(rawImg, cv.COLOR_BGR2RGB)
     
     # Converting from BGR to RGB #
@@ -127,7 +127,7 @@ def LoG():
     laplaceImage = cv.Laplacian(grayImg, cv.CV_16S, ksize=3)
     thresholded_laplaceImage = laplaceImage
     max_max_max = np.max(laplaceImage)
-    threshold = max_max_max * 1.8
+    threshold = max_max_max * 0.1
     
     laplaceImage[np.abs(laplaceImage) > threshold] = 255
     
@@ -173,4 +173,5 @@ We used a filter size of 3x3 and a threshold of 1.8 to get more edges.
 The edges are clearly visible in the Laplacian Image after thresholding.
 '''
 
-# Cautiously Crafted By Redzwinger #
+# Cautiously Crafted By Achintya Kamath/Redzwinger #
+

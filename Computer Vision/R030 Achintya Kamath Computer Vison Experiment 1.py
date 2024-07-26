@@ -159,4 +159,5 @@ Second.
 If sobel filter size is increased from 3x3 to 5x5 or larger the finer details from the images disappears which leads to blurring of the final edges of the image.
 '''
 
-# Cautiously Crafted By Redzwinger #
+# Cautiously Crafted By Achintya Kamath/Redzwinger #
+
