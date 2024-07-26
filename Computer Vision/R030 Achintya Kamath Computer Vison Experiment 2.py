@@ -7,8 +7,6 @@ Computer Vision Experiment 2 : To highlight Edges using DoG (Difference of Gauss
 25th July 20224
 '''
 
-from cgitb import grey
-from telnetlib import GA
 import cv2 as cv
 from skimage import data
 from skimage.color import rgb2gray
@@ -174,3 +172,5 @@ LoG of the image is done to show the edges of the image Dhoni.
 We used a filter size of 3x3 and a threshold of 1.8 to get more edges.
 The edges are clearly visible in the Laplacian Image after thresholding.
 '''
+
+# Cautiously Crafted By Redzwinger #
