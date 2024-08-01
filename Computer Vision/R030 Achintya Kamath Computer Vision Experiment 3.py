@@ -138,7 +138,7 @@ if __name__ == "__main__":
     # Default Pixel Size is 8x8 #
     pix_size = (8,8)
     # HoG #
-    #HistogramOfGradients(pix_size, orientations)
+    HistogramOfGradients(pix_size, orientations)
     # SVM Detector #
     SVM_Detector()
 
