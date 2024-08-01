@@ -23,7 +23,7 @@ from skimage.feature import hog
 from skimage import exposure # Used to rescale the image without changing HOG
 
 def HistogramOfGradients(pix, ori):
-    RAWimage = imread("cat.png") # Reading the image using skimage.io.imread
+    RAWimage = imread("./Computer Vision/cat.png") # Reading the image using skimage.io.imread
 
     # Checking the shape #
     print("\n Original Image Shape: ", RAWimage.shape)
@@ -105,33 +105,32 @@ def HistogramOfGradients(pix, ori):
 # Task 3 #
 
 def SVM_Detector():
+    # Function to detect people using HoG and SVM (Pre-trained)
     
-    # Function to detect people using HoG and SVM (Pre-trained)#
-    
-    RAWimage = imread("people9.jpg") # Reading the image using cv2.imread
+    RAWimage = imread("./Computer Vision/people9.jpg") # Reading the image using imread
     
     HOg = cv.HOGDescriptor()
-    
     HOg.setSVMDetector(cv.HOGDescriptor_getDefaultPeopleDetector())
     
-    if RAWimage.shape[1]>400:
+    if RAWimage.shape[1] > 400:
         (rows, cols) = RAWimage.shape[:2]
-        ratio = cols/float(rows)
+        ratio = cols / float(rows)
         
-        image = cv.resize(RAWimage, (400, int(cols*rows)))
+        image = cv.resize(RAWimage, (400, int(400 * ratio)))
         
         GRAYim = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
     
         rect, weights = HOg.detectMultiScale(GRAYim, winStride=(4, 4), padding=(8, 8), scale=1.1)
     
-    for i, (x, y, w, h) in enumerate(rect):
-        if weights[i]<0.4:
-            continue
-        else:
-            cv.rectangle(GRAYim, (x, y), (x+w, y+h), (0, 255, 0), 2)
+        for i, (x, y, w, h) in enumerate(rect):
+            if weights[i] < 0.4:
+                continue
+            else:
+                cv.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
     
-    plt.imshow(GRAYim)
-    plt.show()    
+    plt.imshow(cv.cvtColor(image, cv.COLOR_BGR2RGB))
+    plt.axis('off')
+    plt.show()   
 
 if __name__ == "__main__":
     # Default Orientation is 9 #
