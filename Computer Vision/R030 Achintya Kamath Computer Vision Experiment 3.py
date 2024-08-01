@@ -106,19 +106,32 @@ def HistogramOfGradients(pix, ori):
 
 def SVM_Detector():
     
-    RAWimage = cv.imread("C:\Achintya\Achintya's Stuff\Gitty Things\Academia Stash\Academia-Stash\Computer Vision\people.png") # Reading the image using cv2.imread
+    # Function to detect people using HoG and SVM (Pre-trained)#
+    
+    RAWimage = imread("C:\Achintya\Achintya's Stuff\Gitty Things\Academia Stash\Academia-Stash\Computer Vision\people9.jpg") # Reading the image using cv2.imread
     
     HOg = cv.HOGDescriptor()
     
     HOg.setSVMDetector(cv.HOGDescriptor_getDefaultPeopleDetector())
     
-    if RAWimage.shape[1]<400:
+    if RAWimage.shape[1]>400:
         (rows, cols) = RAWimage.shape[:2]
         ratio = cols/float(rows)
         
-        RAWimage = cv.resize(RAWimage, (400, int(cols*rows)))
+        image = cv.resize(RAWimage, (400, int(cols*rows)))
+        
+        GRAYim = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
     
+        rect, weights = HOg.detectMultiScale(GRAYim, winStride=(4, 4), padding=(8, 8), scale=1.1)
     
+    for i, (x, y, w, h) in enumerate(rect):
+        if weights[i]<0.4:
+            continue
+        else:
+            cv.rectangle(GRAYim, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    
+    plt.imshow(GRAYim)
+    plt.show()    
 
 if __name__ == "__main__":
     # Default Orientation is 9 #
@@ -126,9 +139,9 @@ if __name__ == "__main__":
     # Default Pixel Size is 8x8 #
     pix_size = (8,8)
     # HoG #
-    HistogramOfGradients(pix_size, orientations) 
-
-
+    #HistogramOfGradients(pix_size, orientations)
+    # SVM Detector #
+    SVM_Detector()
 
 '''
 Conclusion 1:
@@ -141,6 +154,12 @@ For number of pixels per cell = 16x16,
 Length of the HoG Descriptor is reducing to 46980.
 
 Therefore, smaller the cell size, larger the HoG Descriptor Vector.
+
+Conclusion 2:
+For the given image, the default SVM Detector, which is pretrained model is used.
+For winStride=(4, 4), padding=(8, 8), scale=1.1, the SVM Detector detects people with weights of 0.4
+If scale is reduced from 1.1 to 1.05, we see that the detector uses more layers of image parameters to detect people. This results in more number of rectangles around people.
+Number of rectangles can be reduced by tuning the threshold variable.
 '''
 
 # Cautiously Crafted By Achintya Kamath/Redzwinger #
