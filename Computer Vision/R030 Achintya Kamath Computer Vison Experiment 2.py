@@ -4,7 +4,7 @@ Name: Achintya Kamath
 Roll Number: R030
 MBA Tech Artificial Intelligence
 Computer Vision Experiment 2 : To highlight Edges using DoG (Difference of Gaussian) and LoG (Laplacian of Gaussian).
-25th July 20224
+25th July 2024
 '''
 
 import cv2 as cv

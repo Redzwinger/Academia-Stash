@@ -4,7 +4,7 @@ Name: Achintya Kamath
 Roll Number: R030
 MBA Tech Artificial Intelligence
 Computer Vision Experiment 1 : To highlight the edges of the given image and to draw Histogram of orientation.
-18th July 20224
+18th July 2024
 '''
 
 # Importing things #
