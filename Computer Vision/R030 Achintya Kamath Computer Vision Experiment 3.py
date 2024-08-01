@@ -23,7 +23,7 @@ from skimage.feature import hog
 from skimage import exposure # Used to rescale the image without changing HOG
 
 def HistogramOfGradients(pix, ori):
-    RAWimage = imread("C:\Achintya\Achintya's Stuff\Gitty Things\Academia Stash\Academia-Stash\Computer Vision\cat.png") # Reading the image using skimage.io.imread
+    RAWimage = imread("cat.png") # Reading the image using skimage.io.imread
 
     # Checking the shape #
     print("\n Original Image Shape: ", RAWimage.shape)
@@ -108,7 +108,7 @@ def SVM_Detector():
     
     # Function to detect people using HoG and SVM (Pre-trained)#
     
-    RAWimage = imread("C:\Achintya\Achintya's Stuff\Gitty Things\Academia Stash\Academia-Stash\Computer Vision\people9.jpg") # Reading the image using cv2.imread
+    RAWimage = imread("people9.jpg") # Reading the image using cv2.imread
     
     HOg = cv.HOGDescriptor()
     
