@@ -2,7 +2,7 @@
 Name: Achintya Kamath
 Roll Number: R030
 MBA Tech Artificial Intelligence
-Lab 3 - Trends and Seasonality
+Lab 4 - Trends and Seasonality (Python Edition)
 27th January 2025
 '''
 
