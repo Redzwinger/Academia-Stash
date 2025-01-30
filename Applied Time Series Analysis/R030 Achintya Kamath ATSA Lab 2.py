@@ -15,6 +15,7 @@ import statsmodels.graphics.tsaplots as sgt
 import statsmodels.tsa. stattools as sts
 from statsmodels.tsa.seasonal import seasonal_decompose
 import seaborn as sns
+from pandas.plotting import lag_plot
 sns.set_style('darkgrid')
 sns.set_context('notebook', font_scale=1)
 sns.set_palette('viridis')
@@ -46,43 +47,35 @@ plt.title("Time Plot For AirPassengers.csv")
 sns.lineplot(x='date', y='value', data=df_copy)
 plt.show()
 
-df_copy['month'] = df_copy['date'].month
-df_copy['year'] = df_copy['date'].year
+df_copy['month'] = df_copy['date'].dt.month
+df_copy['year'] = df_copy['date'].dt.year
 
 print("\nHead:\n", df_copy.head())
-#sns.lineplot(x='month',y='value', hue='year', data=df_copy)
-#plt.show()
+sns.lineplot(x='month',y='value', hue='year', data=df_copy)
+plt.show()
 
 # Checking for Trends and Seasonality using seasonal decompose
 s_dec_multiplicative = seasonal_decompose(df_train.value, model='multiplicative', period=1)
 s_dec_multiplicative.plot()
 plt.show()
 
-'''
-# Autocorrelation / ACF - Plotting the graph
-sgt.plot_acf(df_train.market_data, lags=40, zero=False)
-plt.title("Autocorrelation of S&P Prices", size = 24)
+laggy = [1,2,3,6,12]
+
+plt.figure(figsize=(10, 8))
+for i, lag in enumerate(laggy, 1):
+    plt.subplot(3, 2, i)
+    lag_plot(df_copy['value'], lag=lag)
+    plt.title(f'Lag {lag}')
+plt.tight_layout()
 plt.show()
 
-# Partial Autocorrelation
-sgt.plot_pacf(df_train.market_data, lags=40, zero=False, method=('ols') )
-plt.title("PACF of S&P Prices", size = 24)
-plt.show()
+for lag in laggy:
+    sgt.plot_acf(df_train.value, lags=lag, zero=False)
+    plt.title(f"Autocorrelation for Lag {lag}")
+    plt.show()
 
-# Generating White Noise
-wn= np.random.normal(loc=df_train.market_data.mean(),scale=df_train.market_data.std(),size=len(df_train))
-df_train['wn']=wn
-df_train.describe()
+    sgt.plot_pacf(df_train.value, lags=lag, zero=False, method=('ols') )
+    plt.title(f"Partial Autocorrelation for Lag {lag}")
+    plt.show()
 
-# Plotting the above generated White Noise
-df_train.wn.plot(figsize=(20,5))
-plt.title("White Noise Time Series", size = 24)
-plt.show()
-
-# Finally, plotting the train set data
-df_train.market_data.plot(figsize=(20,5))
-plt.title("S&P Prices", size = 24)
-plt.ylim(0,2300 )
-plt.show()
-'''
 # Curiously Crafted By Achintya Kamath/Redzwinger #
