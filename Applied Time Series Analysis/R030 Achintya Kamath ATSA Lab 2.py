@@ -6,13 +6,9 @@ Lab 2 - More Time Series Basics
 13th January 2025
 '''
 
-from tkinter import font
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-from pandas.tseries.offsets import YearEnd
 import statsmodels.graphics.tsaplots as sgt
-import statsmodels.tsa. stattools as sts
 from statsmodels.tsa.seasonal import seasonal_decompose
 import seaborn as sns
 from pandas.plotting import lag_plot
