@@ -59,6 +59,7 @@ print("Seasonality: \n", data.head(25), "\n")
 data['Residue'] = data['value']-data['12MA-Trend']-data['Seasonality']
 
 print("Residue: \n", data.head(25), "\n")
+print("Tail: \n", data.tail(25))
 
 just_data = data[['Date', 'value']].dropna()
 lag_data = data[['Date', 'Lag1-12MA', 'Lag2-12MA']].dropna()
